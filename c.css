@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #e9f1ff, #f3f8ff);
+    margin: 0;
+    padding: 40px;
+    color: #1a1a1a;
+}
+
+h1,h2 {
+    font-family: "Jura", sans-serif;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #0e267e;
+    letter-spacing: 1px;
+}
+
+/* Сітка з іконками */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Картка-іконка */
+.teacher-card {
+    font-family: "Jura", sans-serif;
+    background: #ffffffcc;
+    backdrop-filter: blur(5px);
+    border-radius: 24px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    border: 1px solid #dbe3ff;
+}
+
+.teacher-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+
+.teacher-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #0e267e;
+    background: white;
+    padding: 4px;
+    margin-bottom: 15px;
+}
+
+.teacher-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0e267e;
+}
+
+/* Модальне вікно */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    padding: 20px;
+    z-index: 1000; /* Додано для забезпечення того, що модалка буде поверх всього */
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    max-width: 750px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+    animation: show 0.35s ease;
+    text-align: center;
+    max-height: 90vh; /* Обмежте висоту для прокрутки */
+    overflow-y: auto; /* Дозвольте прокрутку вмісту */
+    -webkit-overflow-scrolling: touch; /* Покращення прокрутки на iOS */
+}
+
+@keyframes show {
+    from { transform: translateY(25px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid #0e267e;
+    margin-bottom: 20px;
+}
+
+.modal h2 {
+    margin: 0;
+    font-size: 26px;
+    color: #0e267e;
+    margin-bottom: 15px;
+}
+
+.modal p {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #0e267e;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    color: #ff4444;
+}
+p{
+    font-family: "Jura", sans-serif;
+    text-align: left    ;
+}
+
+/* Мобільні оптимізації */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 20px;
+        border-radius: 15px;
+        margin: 20px 10px;
+    }
+    body {
+        padding: 20px; /* Зменште загальний padding для тіла */
+    }
+}
